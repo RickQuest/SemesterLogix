@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainView.qml</file>
+        <file>SelectionView.qml</file>
+        <file>CourseView.qml</file>
+        <file>ScheduleView.qml</file>
+        <file>CustomFooter.qml</file>
+        <file>CustomHeader.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;qml;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files\BaseClass">
+      <UniqueIdentifier>{91e9bb58-b705-4556-95a6-2e1fc8c5df62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BaseClass">
+      <UniqueIdentifier>{404f330f-9365-48b6-a2a0-f3b2526b8f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{8f9bb33f-5cb3-4f3b-bdb5-8682e6d1fd7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ETS">
+      <UniqueIdentifier>{90200674-894a-48a3-81a4-59d6e91ffb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ETS">
+      <UniqueIdentifier>{3a238043-7e7b-4ead-bc46-9196b46e9c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewModels">
+      <UniqueIdentifier>{8bc661dd-fc4c-4775-93d8-77cc8bbfde4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewModels">
+      <UniqueIdentifier>{a74935bb-22d2-4ca3-81da-632b5eb2951f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{9c9cbc57-b1b2-44c8-828f-ef362f8a191e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\CustomControls">
+      <UniqueIdentifier>{57441423-13f3-4b7d-98cb-7482c06edc48}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtRcc Include="qml.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="main.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <ClCompile Include="ETSWebScraper.cpp">
+      <Filter>Source Files\ETS</Filter>
+    </ClCompile>
+    <ClCompile Include="ISchool.cpp">
+      <Filter>Source Files\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="IWebScraper.cpp">
+      <Filter>Source Files\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleViewModel.cpp">
+      <Filter>Source Files\ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionViewModel.cpp">
+      <Filter>Source Files\ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="MainViewModel.cpp">
+      <Filter>Source Files\ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="ETSSchool.cpp">
+      <Filter>Source Files\ETS</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeTable.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ETSParser.cpp">
+      <Filter>Source Files\ETS</Filter>
+    </ClCompile>
+    <ClCompile Include="IParser.cpp">
+      <Filter>Source Files\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Course.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseViewModel.cpp">
+      <Filter>Source Files\ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="TableModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ISchool.h">
+      <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="IWebScraper.h">
+      <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ETSWebScraper.h">
+      <Filter>Header Files\ETS</Filter>
+    </ClInclude>
+    <ClInclude Include="ETSSchool.h">
+      <Filter>Header Files\ETS</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ETSParser.h">
+      <Filter>Header Files\ETS</Filter>
+    </ClInclude>
+    <ClInclude Include="IParser.h">
+      <Filter>Header Files\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeTable.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MainViewModel.h">
+      <Filter>Header Files\ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="SelectionView.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MainView.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ScheduleView.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CourseView.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="cpp.hint" />
+    <None Include="packages.config" />
+    <None Include="SemesterLogix.pri" />
+    <None Include="SemesterLogix.pro" />
+    <None Include="CustomFooter.qml">
+      <Filter>Resource Files\CustomControls</Filter>
+    </None>
+    <None Include="CustomHeader.qml">
+      <Filter>Resource Files\CustomControls</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="SelectionViewModel.h">
+      <Filter>Header Files\ViewModels</Filter>
+    </QtMoc>
+    <QtMoc Include="Course.h">
+      <Filter>Header Files\Models</Filter>
+    </QtMoc>
+    <QtMoc Include="CourseViewModel.h">
+      <Filter>Header Files\ViewModels</Filter>
+    </QtMoc>
+    <QtMoc Include="ScheduleViewModel.h">
+      <Filter>Header Files\ViewModels</Filter>
+    </QtMoc>
+    <QtMoc Include="Group.h">
+      <Filter>Header Files\Models</Filter>
+    </QtMoc>
+    <QtMoc Include="TableModel.h">
+      <Filter>Header Files\Models</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

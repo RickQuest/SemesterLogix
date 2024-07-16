@@ -32,7 +32,7 @@ To effectively run SemesterLogix, you will need:
    - **C/C++ Preprocessor**:
      - Preprocessor Definitions: `SOLUTION_DIR=R"$(SolutionDir)";%(PreprocessorDefinitions)`
    - **Linker General**:
-     - (RELEASE) Additional Library Directories: `C:\Qt\5.15.0\msvc2019_64\lib` (adjust as per your Qt installation path)
+     - Additional Library Directories: `C:\Qt\5.15.0\msvc2019_64\lib` (adjust as per your Qt installation path)
    - **Linker Input**:
      - (RELEASE) Additional Dependencies: `Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Qml.lib;Qt5Quick.lib`
      - (DEBUG) Additional Dependencies: `Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Qmld.lib;Qt5Quickd.lib`

@@ -17,7 +17,7 @@ To run SemesterLogix effectively, you will need the following:
   - Qt Extension for Visual Studio
   - Xpdf for extracting information from course schedule. It is included in the repo and the application use it automatically. you don't need to do anything. 
 
-### Installation
+## Installation
 1. **Clone the repository**
 2. **Open the project solution in Visual Studio (2019 and 2022 version are tested and functionnal) and make sure those project properties are correctly set :**
    - Qt Project Settings => Qt Installation : 5.15.0_msvc2019_64
@@ -28,10 +28,10 @@ To run SemesterLogix effectively, you will need the following:
    - Linker => Input => Additional Dependencies : Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Qml.lib;Qt5Quick.lib
 3. **Go to Qt extension option and set Qt version to 5.15.0_msvc2019_64 by pointing to "C:\Qt\5.15.0\msvc2019_64" folder (or where your Qt installation is).**
 
-### Precompiled Binaries
+## Precompiled Binaries
 If you do not wish to compile the app from source, you can download precompiled binaries available in the [Releases](https://github.com/RickQuest/SemesterLogix/releases) section.
 
-### Usage
+## Usage
 1. **Start the application**:
 2. **Select ETS school from the dropdown menu**.
 3. **Upload the course schedule file** downloaded from the ETS website.

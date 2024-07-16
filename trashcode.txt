@@ -1,0 +1,646 @@
+std::vector<QString> mmCourse = {
+	   "ATE070",
+	   "CHM131",
+	   "COM110",
+	   "COM115",
+	   "ENT201",
+	   "ENT202",
+	   "GIA400",
+	   "GIA602",
+	   "GPA141",
+	   "GPA205",
+	   "GPA210",
+	   "GPA220",
+	   "GPA305",
+	   "GPA325",
+	   "GPA430",
+	   "GPA434",
+	   "GPA445",
+	   "GPA535",
+	   "GPA546",
+	   "GPA548",
+	   "GPA659",
+	   "GPA662",
+	   "GPA664",
+	   "GPA665",
+	   "GPA725",
+	   "GPA754",
+	   "GPA770",
+	   "GPA772",
+	   "GPA783",
+	   "GPA787",
+	   "GPA791",
+	   "GPA793",
+	   "GPE450",
+	   "GTS602",
+	   "GTS615",
+	   "GTS620",
+	   "INF155",
+	   "ING150",
+	   "ING160",
+	   "ING500",
+	   "LRC100",
+	   "MAT144",
+	   "MAT145",
+	   "MAT165",
+	   "MAT265",
+	   "MAT350",
+	   "MATEST",
+	   "PEP110",
+	   "PHY144",
+	   "PHY332",
+	   "PHY335",
+	   "PRE011",
+	   "TIN503",
+
+	};
+	std::vector<QString> mmCourseName = {
+			   "NEUROFOCUS",
+			   "CHIMIE ET MATÉRIAUX",
+			   "COM110",
+			   "COM115",
+			   "ENT201",
+			   "ENT202",
+			   "GIA400",
+			   "GIA602",
+			   "GPA141",
+			   "GPA205",
+			   "GPA210",
+			   "GPA220",
+			   "GPA305",
+			   "GPA325",
+			   "GPA430",
+			   "GPA434",
+			   "GPA445",
+			   "GPA535",
+			   "GPA546",
+			   "GPA548",
+			   "GPA659",
+			   "GPA662",
+			   "GPA664",
+			   "GPA665",
+			   "GPA725",
+			   "GPA754",
+			   "GPA770",
+			   "GPA772",
+			   "GPA783",
+			   "GPA787",
+			   "GPA791",
+			   "GPA793",
+			   "GPE450",
+			   "GTS602",
+			   "GTS615",
+			   "GTS620",
+			   "INF155",
+			   "ING150",
+			   "ING160",
+			   "ING500",
+			   "LRC100",
+			   "MAT144",
+			   "MAT145",
+			   "MAT165",
+			   "MAT265",
+			   "MAT350",
+			   "MATEST",
+			   "PEP110",
+			   "PHY144",
+			   "PHY332",
+			   "PHY335",
+			   "PRE011",
+			   "TIN503",
+
+	};
+	
+	
+	//TableView {
+ //   anchors.fill: parent
+ //   columnSpacing: 1
+ //   rowSpacing: 1
+ //   clip: true
+ //
+ //   model: TableModel {}
+ //
+ //   delegate: Rectangle {
+ //       implicitWidth: 75
+ //       implicitHeight: 25
+ //       Text {
+ //           text: display
+ //       }
+ //   }
+
+   
+  //TableView {
+  //   anchors.fill: parent
+  //   //columnSpacing: 1
+  //   //rowSpacing: 1
+  //   clip: true
+  //
+  //   model: TableModel {
+  //       TableModelColumn { display: "heure" ;title: "heure"}
+  //       TableModelColumn { display: "Lundi" }
+  //       TableModelColumn { display: "Mardi" }
+  //       TableModelColumn { display: "Mercredi" }
+  //       TableModelColumn { display: "Jeudi" }
+  //       TableModelColumn { display: "Vendredi" }
+  //       TableModelColumn { display: "Samedi" }
+  //       TableModelColumn { display: "Dimanche" }
+  //
+  //
+  //       rows: [
+  //           {"heure": "08:00"},
+  //           {"heure": "08:30"},
+  //           {"heure": "09:00"},
+  //           {"heure": "09:30"},
+  //           {"heure": "10:00"},
+  //           {"heure": "10:30"},
+  //           {"heure": "11:00"},
+  //           {"heure": "11:30"},
+  //           {"heure": "12:00"},
+  //           {"heure": "12:30"},
+  //           {"heure": "13:00"},
+  //           {"heure": "13:30"},
+  //           {"heure": "14:00"},
+  //           {"heure": "14:30"},
+  //           {"heure": "15:00"},
+  //           {"heure": "15:30"},
+  //           {"heure": "16:00"},
+  //           {"heure": "16:30"},
+  //           {"heure": "17:00"},
+  //           {"heure": "17:30"},
+  //           {"heure": "18:00"},
+  //           {"heure": "18:30"},
+  //           {"heure": "19:00"},
+  //           {"heure": "19:30"},
+  //           {"heure": "20:00"},
+  //           {"heure": "20:30"},
+  //           {"heure": "21:00"},
+  //           {"heure": "21:30"},
+  //           {"heure": "22:00"},
+  //           {"heure": "22:30"},
+  //           {"heure": "23:00"},
+  //           {"heure": "23:30"}
+  //       ]
+  //   }
+  //
+  //   delegate: Rectangle {
+  //       implicitWidth: 75
+  //       implicitHeight: 15
+  //       border.width: 1
+  //
+  //       Text {
+  //           text: display
+  //           anchors.centerIn: parent
+  //       }
+  //   }
+  //}
+  
+  Q_INVOKABLE bool TableModel::loadSchedules(QList<QList<QObject*>> Schedules)
+{
+	for (QList<QObject*> schedule : Schedules)
+	{
+		QList<TimeTable> tempList;
+		for (QObject* group : schedule)
+		{
+			for (TimeTable* timetable : *(qobject_cast<Group*>(group)->GetGrTimeSlots()))
+			{
+				tempList.push_back(*timetable);
+			}
+		}
+		mSchedule.push_back(tempList);
+	}
+
+
+	DisplaySchedule(mSchedule.at(0));
+
+	return true;
+}
+Q_INVOKABLE QList<QList<QObject*>> ScheduleViewModel::GetSchedules()
+{
+	QList<QList<QObject*>>tempList1;
+
+	for (QList<Group*> schedule : mScheduler.GetSchedules())
+	{
+		QList<QObject*> tempList;
+		for (Group* group : schedule)
+		{
+			tempList.push_back(dynamic_cast<QObject*>(group));
+
+		}
+		tempList1.push_back(tempList);
+	}
+	return tempList1;
+}
+
+ delegate: Component {
+            Item {
+                //property bool selected: false
+                width: parent.width/5
+                height: parent.height/7
+                Column {
+                    Text { text: model.modelData.Code }
+                   // Text { text: model.modelData.Name }
+                    //Text { text: model.modelData.Prior }
+                }
+                Rectangle {
+                   id: componentRect
+                   width: parent.width
+                   height: parent.height
+                   anchors.fill: parent
+                   color: "dodgerblue"
+                   opacity: 0.5*model.modelData.Selected
+                   MouseArea {
+                       anchors.fill: parent
+                       onClicked: 
+                       {
+                       //model.modelData.mSelected = !model.modelData.mSelected
+                       model.modelData.Selected = !model.modelData.Selected
+                       //selected = !selected
+                       //componentRect.opacity = 0.5*model.modelData.Selected
+                       }
+                   }
+                }
+            }
+        }
+		
+		Column{
+   spacing: 10
+   anchors.fill: parent
+
+  
+    Component {
+        id: courseDelegate
+        Item {
+            width: grid.cellWidth; height: grid.cellHeight
+            Column {
+                anchors.fill: parent
+                Text { text: model.modelData.Code; anchors.horizontalCenter: parent.horizontalCenter }
+            }
+            Rectangle {
+                id: componentRect
+                //width: parent.width
+                //height: parent.height
+                anchors.fill: parent
+                color: "lightsteelblue"
+                opacity: 0.5 * model.modelData.Selected
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {model.modelData.Selected = !model.modelData.Selected}
+                }
+            }
+        }
+    }
+    
+    GridView {
+        id: list
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width/2
+        height: parent.height*0.8
+        model: CourseViewModel.Courses
+        delegate: courseDelegate
+    }
+    Button 
+    {
+      id: continuebutton2
+      text: "Continue"
+      onClicked: 
+      {
+        //ScheduleViewModel.SelectedCourses = CourseViewModel.Courses
+        ScheduleViewModel.GenerateSchedules(CourseViewModel.Courses)
+        stack.push("ScheduleView.qml")
+        //CourseViewModel.CourseSelectionFinish()
+      }
+      anchors.horizontalCenter: parent.horizontalCenter
+    }
+  }
+  
+   footer: Rectangle {
+  
+      id: footer
+      height: 50
+      color: "black"
+  
+      Row {
+          anchors.centerIn: parent
+          Button {
+              text: qsTr("Précédent")
+              onClicked: {}
+          }
+          
+          Button {
+              text: qsTr("Suivant")
+              onClicked: {
+              
+              }
+          }
+          
+      }
+    }
+	
+	
+	
+	
+	Column {
+      spacing: 10
+      anchors.centerIn: parent
+
+       
+      Label {
+          text: "École"
+          anchors.horizontalCenter: parent.horizontalCenter
+      }
+      ComboBox {
+          textRole: "key"
+          valueRole: "value"
+          model: ListModel {
+              ListElement { key: "ETS"; value: 1 }
+              ListElement { key: "UQAM"; value: 2 }
+              ListElement { key: "Polytechnique"; value: 3 }
+          }
+
+          onActivated: SelectionViewModel.selectedSchool = currentValue
+          //onActivated: SelectionViewModel.selectedSchool = 0
+          //model: SelectionViewModel.School
+          //textRole: model.modelData
+          //valueRole: "value"
+          //currentIndex: SelectionViewModel.selectedSchool
+          
+         
+          anchors.horizontalCenter: parent.horizontalCenter
+      }
+
+
+      Label {
+          text: "Grille horaire PDF"
+          anchors.horizontalCenter: parent.horizontalCenter
+      }
+      Rectangle {
+          anchors.horizontalCenter: parent.horizontalCenter
+          height:50
+          width: parent.width
+          TextField  {
+              height: parent.height
+              id: pathtext
+              placeholderText: qsTr("Selectionner grille horaire")
+              text:SelectionViewModel.pdfFilepath
+              onTextChanged: {SelectionViewModel.pdfFilepath =pathtext.text}
+          }
+
+          Button {
+              height: parent.height
+              text: "Browse"
+              onClicked: fileDialog.open()
+              anchors.left: pathtext.right
+          }
+      }
+      Button {
+              id: continuebutton
+              text: "Continue"
+              onClicked: 
+              {
+                CourseViewModel.Courses = SelectionViewModel.Courses
+                //CourseViewModel.GenerateCourses()
+                //SelectionViewModel.SelectionFinish()
+                stack.push("CourseView.qml")
+
+              }
+              anchors.horizontalCenter: parent.horizontalCenter
+          }
+  } 
+  FileDialog {
+    id: fileDialog
+    title: "Please choose a file"
+    folder: shortcuts.home
+    onAccepted: {
+        var path = fileDialog.fileUrl.toString();
+        // remove prefixed "file:///"
+        path = path.replace(/^(file:\/{3})/,"");
+        // unescape html codes like '%23' for '#'
+        pathtext.text = decodeURIComponent(path);
+    }
+    onRejected: {
+    }
+    Component.onCompleted: visible = false
+  }
+  
+  TextMetrics {
+            id: textMetrics
+            font.family: "Arial"
+            font.pixelSize: 50
+            text: "Sélectionner l'école"
+        }
+
+        Rectangle {
+            Layout.alignment: Qt.AlignCenter
+            //color: "red"
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 40
+            Text {
+                text: textMetrics.text
+                font: textMetrics.font
+            }
+        }
+		
+		  //Label {
+        //    text: "Sélectionner le PDF contenant l'horaire"
+        //    Layout.alignment: Qt.AlignCenter
+        //    Layout.fillWidth: true
+        //    horizontalAlignment: Text.AlignHCenter
+        //    //Layout.preferredHeight: 40
+        //}
+		
+		
+		
+		 footer: ToolBar {
+        RowLayout {
+            anchors.fill: parent
+            ToolButton {
+                text: qsTr("Précédent")
+                onClicked: stack.pop()
+                Layout.leftMargin: parent.width/40
+                Layout.preferredWidth: parent.width/12
+                Layout.alignment: Qt.AlignLeft
+                background: Rectangle {
+                    radius:5
+                    anchors.fill: parent
+                    color : "dimgrey"
+                }
+            }
+            Label {
+                text: ""
+                Layout.fillWidth: true
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+            }
+            ToolButton {
+                text: qsTr("Suivant")
+                onClicked: stack.push("CourseView.qml")
+                Layout.rightMargin: parent.width/40
+                Layout.preferredWidth: parent.width/12
+                Layout.alignment: Qt.AlignRight
+                background: Rectangle {
+                    radius:5
+                    anchors.fill: parent
+                    color : "dimgrey"
+                }
+            }
+        }
+    }
+	
+	
+	GridView {
+              id : grid
+              anchors.horizontalCenter: parent.horizontalCenter
+              width: parent.width/2 ; height: parent.height/2
+              cellWidth: 100; cellHeight: 50
+              Component {
+                  id: courseDelegate
+                  Rectangle {
+                      id: wrapper
+                      width: grid.cellWidth*0.9
+                      height: grid.cellHeight*0.9
+                      color: "lightsteelblue"; radius: 5 ; opacity:0.5+model.modelData.Selected * 0.5
+                      Text {
+                          id: contactInfo
+                          text: model.modelData.Code
+                          color: "black"
+                      }
+                      MouseArea {
+                         anchors.fill: parent
+                         onClicked: {model.modelData.Selected = !model.modelData.Selected}
+                      }
+                  }
+                 
+              }
+            
+              model: CourseViewModel.Courses
+              delegate: courseDelegate
+              focus: true
+             
+            } 
+			
+			
+			
+			ColumnLayout {
+        //Layout.alignment : AlignVCenter
+        //anchors.centerIn: parent
+        anchors.fill: parent
+        //Layout.fillWidth: true
+        //Layout.preferredWidth: parent.width*0.8
+        //Layout.preferredHeight: parent.height/2
+        spacing: 10
+
+        GroupBox {
+            title: qsTr("Choix de cours")
+            width: parent.width
+            //height: parent.height*0.8
+            height: 200
+            Layout.fillWidth: true
+            //Layout.fillHeight: true
+            //Layout.rightMargin: parent.width/40
+            //Layout.leftMargin: parent.width/40
+            GridView {
+              id : grid
+              Layout.fillWidth: true
+              //width: parent.width
+              //height: parent.height
+              cellWidth: 100; cellHeight: 50
+              Component {
+                  id: courseDelegate
+                  Rectangle {
+                      id: wrapper
+                      width: grid.cellWidth*0.9
+                      height: grid.cellHeight*0.9
+                      color: "lightsteelblue"; radius: 5 ; opacity:0.5+model.modelData.Selected * 0.5
+                      Text {
+                          id: contactInfo
+                          text: model.modelData.Code
+                          color: "black"
+                      }
+                      MouseArea {
+                         anchors.fill: parent
+                         onClicked: {model.modelData.Selected = !model.modelData.Selected}
+                      }
+                  }
+                 
+              }
+            
+              model: CourseViewModel.Courses
+              delegate: courseDelegate
+              focus: true
+             
+            } 
+        }
+  }
+  
+  
+  //Q_INVOKABLE QList<QList<QObject*>> ScheduleViewModel::GetSchedulesAsQVariant()
+//{
+//	QList<QList<QVariant*>>tempList1;
+//
+//	for (QList<Group*> schedule : mScheduler.GetSchedules())
+//	{
+//		QList<QObject*> tempList;
+//		for (Group* group : schedule)
+//		{
+//			tempList.push_back(dynamic_cast<QObject*>(group));
+//
+//		}
+//		tempList1.push_back(tempList);
+//	}
+//	return tempList1;
+//}
+
+//Q_INVOKABLE QList<QList<Group*>> ScheduleViewModel::GetSchedules()
+//{
+//	return mScheduler.GetSchedules();
+//}
+	Q_INVOKABLE QList<QList<QObject*>> GetSchedulesAsQObject();
+
+Q_INVOKABLE QList<QList<QObject*>> ScheduleViewModel::GetSchedulesAsQObject()
+{
+	QList<QList<QObject*>>tempList1;
+
+	for (QList<Group*> schedule : mScheduler.GetSchedules())
+	{
+		QList<QObject*> tempList;
+		for (Group* group : schedule)
+		{
+			tempList.push_back(dynamic_cast<QObject*>(group));
+
+		}
+		tempList1.push_back(tempList);
+	}
+	return tempList1;
+}
+
+
+ TableView {
+     anchors.fill: parent
+     //columnSpacing: 1
+     //rowSpacing: 1
+     clip: true
+  
+     model: TableModel {
+        id: scheduleTable
+     }
+  
+     delegate: Rectangle {
+         implicitWidth: 70
+         implicitHeight: 15
+         //color: (heading==true)?"red":"white"
+         color: tablecolor
+         Text {
+             text: tabledata
+         }
+     }
+  }
+  
+  
+  "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=cv2"
+    ]
+}
+
+C:\Users\eric_\AppData\Roaming\Python\Python37\site-packages
+C:\Users\eric_\AppData\Roaming\Python\Python37\Scripts

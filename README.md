@@ -5,9 +5,8 @@
 SemesterLogix was developed during my time at École de technologie supérieure (ETS) as a response to the lack of an official tool for generating school schedules. The existing tools, including one hosted by a former student, frequently crashed under heavy usage. In contrast, SemesterLogix runs locally, providing a stable and straightforward option for managing school schedules.
 
 ## Features
-- **Local Execution**: Runs locally without requiring an internet connection once set up.
+- **Local Execution**: Runs locally without requiring an internet connection once set up, hence ensuring reliability during critical scheduling periods.
 - **Simple Interface**: Allows easy selection of schools and uploading of course schedules.
-- **Stability**: Built to handle high loads without crashing, ensuring reliability during critical scheduling periods.
 
 ## Requirements
 To effectively run SemesterLogix, you will need:

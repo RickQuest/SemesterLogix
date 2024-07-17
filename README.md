@@ -38,11 +38,19 @@ To effectively run SemesterLogix, you will need:
      - (DEBUG) Additional Dependencies: `Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Qmld.lib;Qt5Quickd.lib`
 3. **Set the Qt version in the Qt extension options to `5.15.0_msvc2019_64` pointing to your Qt installation folder.**
 4. **For Release Builds**:
-   - Navigate to your project's Release directory and deploy Qt libraries:
+   - Navigate to your project's Release directory:
      ```bash
      cd path\to\project\x64\Release
-     C:\Qt\5.15.0\msvc2019_64\bin\windeployqt.exe SemesterLogix.exe
      ```
+     and deploy Qt libraries:
+     ```bash
+     C:\Path\To\Qt\bin\windeployqt.exe --qmldir <path_to_your_qml_sources> SemesterLogix.exe
+     ```
+     here's the command for common configuration : 
+     ```bash
+     C:\Qt\5.15.0\msvc2019_64\bin\windeployqt.exe --qmldir C:\Qt\5.15.0\msvc2019_64\qml SemesterLogix.exe
+     ```
+     
 
 ## Precompiled Binaries
 If you prefer not to compile the app from source, precompiled binaries are available in the [Releases](https://github.com/RickQuest/SemesterLogix/releases) section.

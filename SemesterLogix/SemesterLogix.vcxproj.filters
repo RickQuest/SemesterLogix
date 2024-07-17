@@ -161,6 +161,7 @@
     <None Include="CustomHeader.qml">
       <Filter>Resource Files\CustomControls</Filter>
     </None>
+    <None Include="..\.gitignore" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="SelectionViewModel.h">

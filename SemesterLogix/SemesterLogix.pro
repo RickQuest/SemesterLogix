@@ -4,13 +4,22 @@
 
 TEMPLATE = app
 TARGET = SemesterLogix
-DESTDIR = ../x64/Debug
+
+# Setting directories based on configuration
+CONFIG(release, debug|release): DESTDIR = ../x64/Release
+CONFIG(debug, debug|release): DESTDIR = ../x64/Debug
+
+CONFIG(release, debug|release): OBJECTS_DIR = release
+CONFIG(debug, debug|release): OBJECTS_DIR = debug
+
+CONFIG(release, debug|release): DEFINES += SOLUTION_DIR=R\"($(SolutionDir))\"
+CONFIG(debug, debug|release): DEFINES += SOLUTION_DIR=R\"($(SolutionDir))\"
+
 CONFIG += debug
-DEFINES += SOLUTION_DIR=R\"($(SolutionDir))\"
+
 LIBS += -L"."
 DEPENDPATH += .
 MOC_DIR += .
-OBJECTS_DIR += debug
 UI_DIR += GeneratedFiles
 RCC_DIR += .
 include(SemesterLogix.pri)

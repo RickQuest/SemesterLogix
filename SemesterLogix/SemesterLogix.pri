@@ -12,7 +12,7 @@ HEADERS += ./Scheduler.h \
     ./ISchool.h \
     ./IWebScraper.h \
     ./Group.h \
-    ./Time.h \
+    ./TimeModel.h \
     ./TimeTable.h \
     ./Course.h \
     ./ETSParser.h \
@@ -22,7 +22,7 @@ HEADERS += ./Scheduler.h \
     ./CourseViewModel.h \
     ./SelectionViewModel.h \
     ./ScheduleViewModel.h \
-    ./ScheduleTable.h
+    ./TableModel.h
 SOURCES += ./main.cpp \
     ./Scheduler.cpp \
     ./IParser.cpp \
@@ -37,7 +37,7 @@ SOURCES += ./main.cpp \
     ./SelectionViewModel.cpp \
     ./Course.cpp \
     ./Group.cpp \
-    ./Time.cpp \
+    ./TimeModel.cpp \
     ./TimeTable.cpp \
-    ./ScheduleTable.cpp
+    ./TableModel.cpp
 RESOURCES += qml.qrc

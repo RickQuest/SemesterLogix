@@ -12,7 +12,7 @@ SemesterLogix was developed during my time at École de technologie supérieure 
 To effectively run SemesterLogix, you will need:
 - **Operating System**: Windows
 - **Software Dependencies**:
-  - [Qt 5.15](https://www.qt.io/download) for GUI and application logic. Note: Versions newer than Qt 5.15 are not tested.
+  - [Qt 6.8](https://www.qt.io/download) for GUI and application logic. Note: Versions newer than Qt 5.15 are not tested.
   - Qt Extension for Visual Studio
   - Xpdf (included in the repo) for extracting information from PDF course schedules.
 
@@ -23,19 +23,18 @@ To effectively run SemesterLogix, you will need:
    ```
 2. **Open the project solution in Visual Studio (2019 or 2022) ensuring the following settings:**
    - **Qt Project Settings**: 
-     - Qt Installation: `5.15.0_msvc2019_64`
+     - Qt Installation: `6.8.0_msvc2022_64`
      - Qt Modules: `charts; core; network; qml; quick; widgets`
      - MOC Macro Names: `Q_OBJECT; Q_GADGET; Q_NAMESPACE; Q_NAMESPACE_EXPORT`
    - **C/C++ General**:
-     - Additional Include Directories: `C:\Qt\5.15.0\msvc2019_64\include` (adjust as per your Qt installation path)
+     - Additional Include Directories: `%(AdditionalIncludeDirectories);$(ProjectDir);$(Qt_INCLUDEPATH_)`
    - **C/C++ Preprocessor**:
-     - Preprocessor Definitions: `SOLUTION_DIR=R"$(SolutionDir)";%(PreprocessorDefinitions)`
+     - Preprocessor Definitions: `SOLUTION_DIR=R"($(SolutionDir))";$(Qt_DEFINES_);%(PreprocessorDefinitions)`
    - **Linker General**:
-     - Additional Library Directories: `C:\Qt\5.15.0\msvc2019_64\lib` (adjust as per your Qt installation path)
+     - Additional Library Directories: `C:\Qt\6.8.0\msvc2022_64\lib;%(AdditionalLibraryDirectories)` (adjust as per your Qt installation path)
    - **Linker Input**:
-     - (RELEASE) Additional Dependencies: `Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Qml.lib;Qt5Quick.lib`
-     - (DEBUG) Additional Dependencies: `Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Qmld.lib;Qt5Quickd.lib`
-3. **Set the Qt version in the Qt extension options to `5.15.0_msvc2019_64` pointing to your Qt installation folder.**
+     - Additional Dependencies: `%(AdditionalDependencies);$(Qt_LIBS_)`
+3. **Set the Qt version in the Qt extension options to `6.8.0_msvc2022_64` pointing to your Qt installation folder.**
 4. **For Release Builds**:
    - Navigate to your project's Release directory:
      ```bash

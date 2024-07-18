@@ -1,8 +1,8 @@
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
-import QtQuick.Window
-import QtQml
+﻿import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
+import QtQml 2.15
 import QtQuick.Dialogs
 import TableModel 0.1
 
@@ -11,7 +11,8 @@ Page {
   width: parent.width
   height: parent.height
   footer: CustomFooter{
-      nextEnable:false ; backEnable:true
+      nextEnable:false
+      backEnable:true
   }
 
   GridView {
@@ -22,7 +23,8 @@ Page {
       Component {
           id: scheduleDelegate
           Item{
-              width: schedulesGrid.cellWidth ; height: schedulesGrid.cellHeight
+              width: schedulesGrid.cellWidth
+              height: schedulesGrid.cellHeight
               Text {
               text: "Horaire "+index
               width:parent.width*0.9

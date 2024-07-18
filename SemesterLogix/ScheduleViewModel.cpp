@@ -32,6 +32,7 @@ void ScheduleViewModel::GenSchedulesTables()
 		newScheduleTables.push_back(new TableModel(schedule));
 	}
 	setSchedulesTables(newScheduleTables);
+	qDebug() << "Schedules Tables:" << mScheduleTables;
 }
 
 void ScheduleViewModel::setSchedulesTables(const QList<TableModel*>& schedulesTables)

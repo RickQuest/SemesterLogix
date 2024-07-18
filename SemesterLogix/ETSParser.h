@@ -3,8 +3,8 @@
 #define ETSPARSER_H
 
 // Fichier : ETSParser.h
-// GPA434 ñ Laboratoire 3
-// CrÈation :
+// GPA434 ‚Äì Laboratoire 3
+// Cr√©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01
@@ -23,16 +23,16 @@ class ETSParser : public IParser
 public:
 	void SetQCleanList() {
 		mQCleanList = QStringList{
-"Bureau du registraire - logistique acadÈmique",
+"Bureau du registraire - logistique acad√©mique",
 "                                                          HORAIRE HIVER 2021",
-"Locaux A: b‚timent sud, 1100, Notre-Dame O.",
-"                                                Locaux B: b‚timent nord, 1111, Notre-Dame O.",
-"                                                Locaux D: b‚timent sud-ouest, 1219, rue William",
-"                                                Locaux E: b‚timent ouest, 1220, Notre-Dame O.",
+"Locaux A: b√¢timent sud, 1100, Notre-Dame O.",
+"                                                Locaux B: b√¢timent nord, 1111, Notre-Dame O.",
+"                                                Locaux D: b√¢timent sud-ouest, 1219, rue William",
+"                                                Locaux E: b√¢timent ouest, 1220, Notre-Dame O.",
 "                                                                    AVIS IMPORTANT",
-"                                                 DiffÈrents modes d'enseignement sont proposÈs",
-"                                               P: prÈsence - C: co-modal - D: distance - H: hybride",
-"HEURE ACTIVIT… Mode d'ens. LOCAL",
+"                                                 Diff√©rents modes d'enseignement sont propos√©s",
+"                                               P: pr√©sence - C: co-modal - D: distance - H: hybride",
+"HEURE ACTIVIT√â Mode d'ens. LOCAL",
 "Page : "
 		};
 	};

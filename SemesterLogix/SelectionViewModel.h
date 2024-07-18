@@ -2,8 +2,8 @@
 #define SELECTIONVIEWMODEL_H
 
 // Fichier : SelectionViewModel.h
-// GPA434 – Laboratoire 3
-// Création :
+// GPA434 â€“ Laboratoire 3
+// CrÃ©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01
@@ -12,6 +12,7 @@
 #pragma region Includes
 #include <QObject>
 #include "ETSSchool.h"
+#include <QMetaEnum>
 #pragma endregion
 
 class SelectionViewModel : public QObject
@@ -24,7 +25,11 @@ class SelectionViewModel : public QObject
 		/// <summary>
 		/// Bind QML school combobox value to logic layer. 
 		/// </summary>
-		Q_PROPERTY(QStringList SchoolMapValues READ getSchoolMapValues)
+		Q_PROPERTY(QMap<SchoolEnum, QString> schoolMapValues READ getSchoolMapValues WRITE setSchoolMapValues NOTIFY schoolMapValuesChanged)
+		/// <summary>
+		/// 
+		/// </summary>
+		Q_PROPERTY(QStringList schoolMapKeys READ getSchoolMapKeys NOTIFY schoolMapValuesChanged)
 		/// <summary>
 		/// Two way bind between PDF fileUrl of QML FileDialog and logic layer
 		/// </summary>
@@ -33,11 +38,18 @@ class SelectionViewModel : public QObject
 		/// QProperty used to pass the generated course list to CourseViewModel
 		/// </summary>
 		Q_PROPERTY(QList<QObject*> Courses READ getCourses)
+		/// <summary>
+		/// The initial path of FileDialog
+		/// </summary>
+		Q_PROPERTY(QString downloadsPath READ downloadsPath CONSTANT)
+
 
 
 #pragma region Members
 public:
 	enum SchoolEnum { ETS, UQAM, POLYTECHNIQUE };
+	Q_ENUM(SchoolEnum) // This macro makes the enum accessible in QML
+	QString downloadsPath() const;
 
 private:
 	ISchool* mSchool;
@@ -47,6 +59,8 @@ private:
 	/// QMap to map school QML combobox index and value to logic layer.
 	/// </summary>
 	QMap<SchoolEnum, QString> _SchoolMap{ {ETS,"ETS"}, {UQAM, "UQAM" }, {POLYTECHNIQUE, "POLYTECHNIQUE" } };
+	QMap<SchoolEnum, QString> m_schoolMapValues;
+	QString mDownloadsPath;
 
 #pragma endregion
 
@@ -82,20 +96,26 @@ public:
 		}
 	}
 	QList<QObject*> getCourses() { return mSchool->mIParser->ExtractData(); }
-	QStringList getSchoolMapValues() {return _SchoolMap.values();}
-	QList<SchoolEnum> GetSchoolMapKeys() { return _SchoolMap.keys(); }
+
+	
+	//QStringList getSchoolMapValues() {return _SchoolMap.values();}
+	QMap<SchoolEnum, QString> getSchoolMapValues() const;
+	void setSchoolMapValues(const QMap<SchoolEnum, QString>& values);
+	QStringList getSchoolMapKeys() const;
+	//QList<SchoolEnum> GetSchoolMapKeys() { return _SchoolMap.keys(); }
 
 #pragma endregion
 
 #pragma region Functions
-
+public: 
+	void initializeSchoolMapValues();
 #pragma endregion
 
 #pragma region Slots/Signals
 signals:
 	void pdfFilepathChanged();
 	void schoolChanged();
-
+	void schoolMapValuesChanged();
 
 public slots:
 	/// <summary>

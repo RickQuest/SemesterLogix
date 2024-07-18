@@ -1,7 +1,9 @@
-﻿import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.12
-import QtQuick.Dialogs 1.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+import QtQml
+import QtQuick.Dialogs
 
 Page {
   id: selectionView
@@ -35,7 +37,8 @@ Page {
                 onActivated: SelectionViewModel.selectedSchool = currentIndex
                 // Set the initial currentIndex to the value stored in the backend.
                 Component.onCompleted: currentIndex = SelectionViewModel.selectedSchool
-                model: SelectionViewModel.SchoolMapValues
+                model: SelectionViewModel.schoolMapKeys
+                
                 
             }
         }
@@ -58,16 +61,21 @@ Page {
 
     }
    
-    FileDialog {
-        id: fileDialog
-        folder: shortcuts.home
-        onAccepted: {
-            var path = fileDialog.fileUrl.toString();
-            // remove prefixed "file:///"
-            path = path.replace(/^(file:\/{3})/,"");
-            // unescape html codes like '%23' for '#'
-            pathtext.text = decodeURIComponent(path);
+   FileDialog {
+            id: fileDialog
+            title: "Choisir la grille horaire PDF"
+            currentFolder: SelectionViewModel.downloadsPath // Use the exposed downloadsPath
+            nameFilters: ["PDF files (*.pdf)"]
+            onAccepted: {
+                var fileUrl = fileDialog.selectedFile.toString(); // Ensure it's a string
+                console.log("Selected file URL:", fileUrl); // Log the URL to the console
+                // Convert URL to string and remove "file:///" prefix
+                var path = fileUrl.startsWith("file:///") ? fileUrl.substring(8) : fileUrl;
+                console.log("Processed file path:", path); // Log the processed path to the console
+                pathtext.text = decodeURIComponent(path);
+                console.log("Final file path:", pathtext.text); // Log the final path to the console
+            }
         }
-    }
+
 
 }

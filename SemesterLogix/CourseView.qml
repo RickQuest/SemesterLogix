@@ -1,6 +1,9 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+import QtQml
+import QtQuick.Dialogs
 
 Page {
   id: courseView
@@ -9,7 +12,7 @@ Page {
   footer: CustomFooter{
      nextEnable:true ; backEnable:true
      onButtonClicked: {
-          ScheduleViewModel.GenSchedulesData(CourseViewModel.Courses, courseNumberGrid.currentIndex+1)
+          ScheduleViewModel.GenSchedulesData(courseNumberGrid.currentIndex+1)
           ScheduleViewModel.GenSchedulesTables();
           stack.push("ScheduleView.qml") 
        }

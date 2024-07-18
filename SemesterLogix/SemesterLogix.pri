@@ -22,7 +22,8 @@ HEADERS += ./Scheduler.h \
     ./CourseViewModel.h \
     ./SelectionViewModel.h \
     ./ScheduleViewModel.h \
-    ./TableModel.h
+    ./TableModel.h \
+    ./SingletonProvider.h
 SOURCES += ./main.cpp \
     ./Scheduler.cpp \
     ./IParser.cpp \

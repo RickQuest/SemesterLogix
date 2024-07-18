@@ -3,8 +3,8 @@
 #define SCHEDULEVIEWMODEL_H
 
 // Fichier : ScheduleViewModel.h
-// GPA434 – Laboratoire 3
-// Création :
+// GPA434 â€“ Laboratoire 3
+// CrÃ©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01
@@ -15,6 +15,7 @@
 #include "Scheduler.h"
 #include <QMap>
 #include "TableModel.h"
+#include <QDebug>
 #pragma endregion
 
 class ScheduleViewModel : public QObject
@@ -23,7 +24,7 @@ class ScheduleViewModel : public QObject
 		/// <summary>
 		/// Bind QML tableview to logic layer.
 		/// </summary>
-		Q_PROPERTY(QList<TableModel*> schedulesTables READ GetScheduleTables)
+		Q_PROPERTY(QList<TableModel*> schedulesTables READ GetScheduleTables WRITE setSchedulesTables NOTIFY schedulesTablesChanged)
 		/// <summary>
 		/// Make mSelectedCourseList available to UI layer.
 		/// </summary>
@@ -40,7 +41,7 @@ private:
 	/// </summary>
 	QList<QList<Group*>> mSelectedCourseList;
 	/// <summary>
-	/// Countain TableModel use as interface between Schedule model and QML tableview.
+	/// Contain TableModel use as interface between Schedule model and QML tableview.
 	/// </summary>
 	QList<TableModel*> mScheduleTables;
 #pragma endregion
@@ -74,13 +75,14 @@ public slots:
 	/// <summary>
 	/// Generate list of selected courses from list of all courses. 
 	/// </summary>
-	void GenSchedulesData(QList<QObject*>, int);
-
+	void GenSchedulesData(int);
+signals:
+	void schedulesTablesChanged();
 #pragma endregion
 
 #pragma region Getters/Setters
 public:
-
+	void setSchedulesTables(const QList<TableModel*>& schedulesTables);
 	QList<QList<Group*>> GetSchedules() { return mScheduler.GetSchedules(); }
 	QList<TableModel*> GetScheduleTables() { return mScheduleTables; }
 

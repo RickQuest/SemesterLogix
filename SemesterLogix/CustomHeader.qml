@@ -1,6 +1,9 @@
-import QtQuick 2.9
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+import QtQml
+import QtQuick.Dialogs
  
 ToolBar {
     id: myheader

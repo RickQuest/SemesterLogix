@@ -3,8 +3,8 @@
 #define SCHEDULEGRID_H
 
 // Fichier : ScheduleTable.h
-// GPA434 – Laboratoire 3
-// Création :
+// GPA434 â€“ Laboratoire 3
+// CrÃ©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01

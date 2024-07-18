@@ -1,7 +1,9 @@
-﻿import QtQuick 2.9
-import QtQuick.Window 2.2
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQml
+import QtQuick.Dialogs
 
 ApplicationWindow {
     id: window

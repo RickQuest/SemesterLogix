@@ -5,10 +5,9 @@
 #include <qqmlcontext.h>
 #include "MainViewModel.h"
 #include "SelectionViewModel.h"
-#include "ScheduleViewModel.h"
-#include "CourseViewModel.h"
 #include "ISchool.h"
 #include "TableModel.h"
+#include "SingletonProvider.h"
 
 #pragma endregion
 
@@ -27,16 +26,16 @@ int main(int argc, char* argv[])
     
     QQmlApplicationEngine engine;
 
-
+    SingletonProvider& provider = SingletonProvider::instance();
     MainViewModel mainViewModel;
     SelectionViewModel selectionViewModel;
-    CourseViewModel courseViewModel;
-    ScheduleViewModel scheduleViewModel;
+    //CourseViewModel courseViewModel;
+    //ScheduleViewModel scheduleViewModel;
 
     engine.rootContext()->setContextProperty("MainViewModel", &mainViewModel);
     engine.rootContext()->setContextProperty("SelectionViewModel", &selectionViewModel);
-    engine.rootContext()->setContextProperty("ScheduleViewModel", &scheduleViewModel);
-    engine.rootContext()->setContextProperty("CourseViewModel", &courseViewModel);
+    engine.rootContext()->setContextProperty("ScheduleViewModel", provider.getScheduleViewModel());
+    engine.rootContext()->setContextProperty("CourseViewModel", provider.getCourseViewModel());
 
 
 

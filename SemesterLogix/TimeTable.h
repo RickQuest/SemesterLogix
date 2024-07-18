@@ -3,8 +3,8 @@
 #define TIMETABLE_H
 
 // Fichier : TimeTable.h
-// GPA434 – Laboratoire 3
-// Création :
+// GPA434 â€“ Laboratoire 3
+// CrÃ©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01
@@ -126,10 +126,10 @@ public:
 	Day GetDay();
 	/// <summary>
 	/// Used to acces course type. Their is various course types such as :
-	/// • C {Cours}
-	/// • TP {Travaux pratique}
-	/// • Atelier
-	/// • ect..
+	/// â€¢ C {Cours}
+	/// â€¢ TP {Travaux pratique}
+	/// â€¢ Atelier
+	/// â€¢ ect..
 	/// </summary>
 	/// <returns></returns>
 	QString GetCourseType();

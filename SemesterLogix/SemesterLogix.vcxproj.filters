@@ -138,7 +138,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="SelectionView.qml">
       <Filter>Resource Files</Filter>
     </None>
@@ -181,6 +180,9 @@
     </QtMoc>
     <QtMoc Include="TableModel.h">
       <Filter>Header Files\Models</Filter>
+    </QtMoc>
+    <QtMoc Include="SingletonProvider.h">
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

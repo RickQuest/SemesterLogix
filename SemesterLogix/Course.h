@@ -3,8 +3,8 @@
 #define COURSE_H
 
 // Fichier : Course.h
-// GPA434 – Laboratoire 3
-// Création :
+// GPA434 â€“ Laboratoire 3
+// CrÃ©ation :
 // - E. Surprenant
 // - M. Boudreau
 // - 2020/11/01
@@ -55,9 +55,9 @@ public:
 	/// <summary>
 	/// Constructor V2
 	/// </summary>
-	/// <param name="_name">Name of course : Ingénierie des systèmes orientés-objet </param>
+	/// <param name="_name">Name of course : IngÃ©nierie des systÃ¨mes orientÃ©s-objet </param>
 	/// <param name="_code">Course code : GPA434</param>
-	/// <param name="_section">Where course is taking place : Bâtiment A </param>
+	/// <param name="_section">Where course is taking place : BÃ¢timent A </param>
 	/// <param name="_instructor">Who is teaching the course</param>
 	/// <param name="_prior">Which are the course prerequisite</param>
 	Course(const QString& _name, const QString& _code, const QString& _section, const QString& _instructor, const QString& _prior);

@@ -12,7 +12,7 @@ SemesterLogix was developed during my time at École de technologie supérieure 
 To effectively run SemesterLogix, you will need:
 - **Operating System**: Windows
 - **Software Dependencies**:
-  - [Qt 6.8](https://www.qt.io/download) for GUI and application logic. Note: Versions newer than Qt 5.15 are not tested.
+  - [Qt 6.8](https://www.qt.io/download) for GUI and application logic.
   - Qt Extension for Visual Studio
   - Xpdf (included in the repo) for extracting information from PDF course schedules.
 
